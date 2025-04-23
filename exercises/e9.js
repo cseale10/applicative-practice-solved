@@ -6,9 +6,13 @@ import { data } from "../data/data";
 
 export function getEarthData(data) {
   // Your code goes here...
+  const planetEarth = data.planets.find((planet) => {
+    if (planet) {
+      return planet.name.includes("Earth");
+    }
+  });
+  return planetEarth;
 }
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-9"

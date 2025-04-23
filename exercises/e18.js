@@ -4,9 +4,22 @@
  * Return example: 1902
  */
 
+import { getPlanetsWithNoMoons } from "./e15";
+
 export function getGreatestDiscoveryYear(data) {
   // Your code goes here...
   // feel free to import your `maxBy` or `minBy` methods from previous lessons
+
+  const discoveryYear = data.asteroids
+    .map((asteroid) => asteroid.discoveryYear)
+    .reduce((acc, obj) => {
+      acc[obj] = (acc[obj] || 0) + 1;
+      return acc;
+    }, {});
+  const mostFrequent = Object.keys(discoveryYear).reduce((a, b) =>
+    discoveryYear[a] > discoveryYear[b] ? a : b
+  );
+  return Number(mostFrequent);
 }
 
 // === TEST YOURSELF ===
