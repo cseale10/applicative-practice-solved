@@ -11,7 +11,6 @@ export function findPlanetNameByMoon(data, moonName) {
       return planet.moons.includes(moonName);
     }
   });
-  // .map((planet) => planet.name);
   return planetName.name;
 }
 

@@ -6,14 +6,13 @@ import { data } from "../data/data";
 
 export function getPlanetsWithNoMoons(data) {
   // Your code goes here...
-  const noMoons = data.planets
-    .filter((planet) => {
-      if (!planet.moons) {
-        return planet;
-      }
-    })
-    .map((planet) => planet.name);
-  return noMoons;
+
+  return data.planets.reduce((acc, planet) => {
+    if (!planet.moons) {
+      acc.push(planet.name);
+    }
+    return acc;
+  }, []);
 }
 
 // === TEST YOURSELF ===
